@@ -26,7 +26,7 @@ SECRET_KEY = 'k=lh#37j6=ccqf0n@2lp+lfl4$1f-rw0qje9otb#5egrilwnwa'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'maker-cs.herokuapp.com']
 
 
 # Application definition
@@ -123,6 +123,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
 # # Where to redirect during authentication
 # LOGIN_REDIRECT_URL = reverse_lazy('code-list-project')
 # LOGOUT_REDIRECT_URL = "/"
@@ -134,7 +137,7 @@ STATIC_URL = '/static/'
 # PROTIP:
 # Need to override settings? Create a local_settings.py file
 # in this directory, and add settings there.
-# try:
-#     from maker.local_settings import *
-# except ImportError:
-#     pass
+try:
+    from maker.local_settings import *
+except ImportError:
+    pass
