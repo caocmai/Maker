@@ -9,6 +9,7 @@ class UserCreationForm(UserCreationForm):
     last_name = forms.CharField(required=True, label="Last Name")
     age = forms.IntegerField(required=True, label="Age")
     location = forms.CharField(required=True, label="Location")
+    picture = forms.ImageField()
 
 
     class Meta:

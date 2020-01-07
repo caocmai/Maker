@@ -26,7 +26,7 @@ SECRET_KEY = 'k=lh#37j6=ccqf0n@2lp+lfl4$1f-rw0qje9otb#5egrilwnwa'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'maker-cs.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', 'maker-cs.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -129,6 +129,7 @@ STATICFILES_DIRS = (
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 # # Where to redirect during authentication
 # LOGIN_REDIRECT_URL = reverse_lazy('code-list-project')
