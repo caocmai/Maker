@@ -1,5 +1,7 @@
 
 from django.urls import path
+from django.conf.urls.static import static
+from django.conf import settings
 from registrants.views import Testing, register,view_profile, Home, AllUsers, update_profile
 
 
@@ -11,6 +13,8 @@ urlpatterns = [
     path('', Home.as_view(), name='home-page'),
     path('all_users/', AllUsers.as_view(), name='all-users-page'), 
     path('user_profile/edit', update_profile, name='profile-update-page'),
-    # path('profile/edit/', edit_profile, name='edit_profile')
 
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

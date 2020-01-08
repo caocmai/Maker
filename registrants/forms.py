@@ -32,4 +32,4 @@ class ExtendedUserCreationForm(UserCreationForm):
 class UserProfileForm(ModelForm):
     class Meta:
         model = UserProfile
-        fields = ("location", "age")
+        fields = ("location", "age", "image", "gender")

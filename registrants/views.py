@@ -20,7 +20,7 @@ from django.contrib.auth import authenticate, login
 def register(request):
     if request.method == "POST":
         form = ExtendedUserCreationForm(request.POST)
-        profile_form = UserProfileForm(request.POST)
+        profile_form = UserProfileForm(request.POST, request.FILES)
 
         if form.is_valid() and profile_form.is_valid():
             user = form.save()
@@ -36,8 +36,7 @@ def register(request):
             
             messages.success(request, f'Account created for {username}!')
 
-
-            return redirect('test-page')
+            return redirect('home-page')
     
     else:
         form = ExtendedUserCreationForm()
@@ -77,23 +76,10 @@ class AllUsers(CreateView):
         return render(request, 'registrants/all_users.html', {'users': users})
 
 
-# def edit_profile(request):
-#     if request.method == 'POST':
-#         form = EditProfileForm(request.POST, instance=request.user)
-
-#         if form.is_valid():
-#             form.save()
-#             return redirect(reverse('view-profile-page'))
-#     else:
-#         form = EditProfileForm(instance=request.user)
-#         args = {'form': form}
-#         return render(request, 'registrants/edit_profile.html', args)
-
-
 def update_profile(request):
     if request.method == 'POST':
         user_form = ExtendedUserCreationForm(request.POST, instance=request.user)
-        profile_form = UserProfileForm(request.POST, instance=request.user.userprofile)
+        profile_form = UserProfileForm(request.POST, request.FILES, instance=request.user.userprofile)
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
