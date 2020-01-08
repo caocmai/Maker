@@ -5,7 +5,7 @@
     {% for user in users %}
         {% if user.username == "admin" %}
         {% else %}
-        <li> <a href="{% url 'view-profile-page-pk' user.id %}">{{ user.username }} with user pk: {{ user.id }} and userprofile pk: {{ user.userprofile.id }}</li>
+        <li> <a href="{% url 'view-profile-page-pk' user.id %}">{{ user.username }}</li>
         {% endif %}
     {% endfor %}
 </div>

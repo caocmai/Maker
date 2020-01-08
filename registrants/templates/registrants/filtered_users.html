@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container">
     {% for user in users %}
-        <li> <a href="{% url 'view-profile-page-pk' user.pk %}">{{ user }} with pk {{ user.pk }}</li>
+        <li> <a href="{% url 'view-profile-page-pk' user.pk %}">{{ user }} Age: {{ user.userprofile.age }}</li>
     {% endfor %}
 </div>
 
