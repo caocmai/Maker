@@ -4,7 +4,7 @@ from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView
 from django.contrib import messages
 from django.contrib.auth.models import User
-
+from registrants.models import UserProfile
 from django.contrib.auth import authenticate, login
 
 
@@ -16,7 +16,7 @@ from django.contrib.auth import authenticate, login
 #     template_name = "registration/signup.html"
 #     success_message = "An account was created successfully"
 
-
+# When have time look at Corey's tutorial on this for creating user profile
 def register(request):
     if request.method == "POST":
         form = ExtendedUserCreationForm(request.POST)
@@ -94,3 +94,26 @@ def update_profile(request):
         'user_form': user_form,
         'profile_form': profile_form
     })
+
+
+class RandomUser(CreateView):
+
+    model = User
+
+    def get(self, request):
+        random_user = self.get_queryset().order_by('?')[0]
+        return render(request, 'registrants/user_profile.html', {'user': random_user})
+
+class MaleUser(CreateView):
+
+    model = UserProfile
+
+    def get(self, request):
+        male_user = self.get_queryset().filter(gender='M')
+        return render(request, 'registrants/male_users.html', {'users': male_user})
+
+class FemaleUser(CreateView):
+
+    def get(self, request):
+        female_user = User.objects.filter(userprofile="10")
+        return render(request, 'registrants/male_users.html', {'users': female_user})
