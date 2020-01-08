@@ -33,3 +33,4 @@ class UserProfileForm(ModelForm):
     class Meta:
         model = UserProfile
         fields = ("location", "age", "image", "gender")
+        widgets = {'gender': forms.RadioSelect}
