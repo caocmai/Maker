@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from registrants.forms import ExtendedUserCreationForm, UserProfileForm, EditProfileForm
+from registrants.forms import ExtendedUserCreationForm, UserProfileForm
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView
 from django.contrib import messages
@@ -77,14 +77,34 @@ class AllUsers(CreateView):
         return render(request, 'registrants/all_users.html', {'users': users})
 
 
-def edit_profile(request):
-    if request.method == 'POST':
-        form = EditProfileForm(request.POST, instance=request.user)
+# def edit_profile(request):
+#     if request.method == 'POST':
+#         form = EditProfileForm(request.POST, instance=request.user)
 
-        if form.is_valid():
-            form.save()
-            return redirect(reverse('view-profile-page'))
+#         if form.is_valid():
+#             form.save()
+#             return redirect(reverse('view-profile-page'))
+#     else:
+#         form = EditProfileForm(instance=request.user)
+#         args = {'form': form}
+#         return render(request, 'registrants/edit_profile.html', args)
+
+
+def update_profile(request):
+    if request.method == 'POST':
+        user_form = ExtendedUserCreationForm(request.POST, instance=request.user)
+        profile_form = UserProfileForm(request.POST, instance=request.user.userprofile)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, ('Your profile was successfully updated! Please re-login to your new account!'))
+            return redirect('all-users-page')
+        else:
+            messages.error(request, ('Please correct the error below.'))
     else:
-        form = EditProfileForm(instance=request.user)
-        args = {'form': form}
-        return render(request, 'registrants/edit_profile.html', args)
+        user_form = ExtendedUserCreationForm(instance=request.user)
+        profile_form = UserProfileForm(instance=request.user.userprofile)
+    return render(request, 'registrants/edit_profile.html', {
+        'user_form': user_form,
+        'profile_form': profile_form
+    })

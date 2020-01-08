@@ -33,14 +33,3 @@ class UserProfileForm(ModelForm):
     class Meta:
         model = UserProfile
         fields = ("location", "age")
-
-class EditProfileForm(UserChangeForm):
-    template_name='/something/else'
-
-    class Meta:
-        model = User
-        fields = (
-            'email',
-            'first_name',
-            'last_name',
-        )
