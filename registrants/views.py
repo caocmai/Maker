@@ -106,14 +106,14 @@ class RandomUser(CreateView):
 
 class MaleUser(CreateView):
 
-    model = UserProfile
+    model = User
 
     def get(self, request):
-        male_user = self.get_queryset().filter(gender='M')
-        return render(request, 'registrants/male_users.html', {'users': male_user})
+        male_user = self.get_queryset().filter(userprofile__gender="M")
+        return render(request, 'registrants/filtered_users.html', {'users': male_user})
 
 class FemaleUser(CreateView):
 
     def get(self, request):
-        female_user = User.objects.filter(userprofile="10")
-        return render(request, 'registrants/male_users.html', {'users': female_user})
+        female_user = User.objects.filter(userprofile__gender="F")
+        return render(request, 'registrants/filtered_users.html', {'users': female_user})
