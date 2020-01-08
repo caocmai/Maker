@@ -1,10 +1,10 @@
 
 from django.urls import path
-from registrants.views import SignUpView, Testing
+from registrants.views import Testing, register
 
 
 urlpatterns = [
-    path('', SignUpView.as_view(), name="sign-up-page"),
+    path('', register, name="sign-up-page"),
     path('test/', Testing.as_view(), name="test-page")
 
 ]

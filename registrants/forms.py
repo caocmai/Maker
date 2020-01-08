@@ -1,29 +1,35 @@
 from django import forms
+from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from .models import UserProfile
 
 
-class UserCreationForm(UserCreationForm):
+class ExtendedUserCreationForm(UserCreationForm):
     email = forms.EmailField(required=True, label='Email')
     first_name = forms.CharField(required=True, label="First Name")
     last_name = forms.CharField(required=True, label="Last Name")
-    age = forms.IntegerField(required=True, label="Age")
-    location = forms.CharField(required=True, label="Location")
-    picture = forms.ImageField()
+    # age = forms.IntegerField(required=True, label="Age")
+    # location = forms.CharField(required=True, label="Location")
+    # picture = forms.FileField(label="Upload Image")
 
 
     class Meta:
         model = User
-        fields = ("first_name", "last_name", "username", "age", "location", "email", "password1", "password2")
+        fields = ("first_name", "last_name", "username", "email", "password1", "password2")
 
     def save(self, commit=True):
-        user = super(UserCreationForm, self).save(commit=False)
+        user = super().save(commit=False)
+
         user.email = self.cleaned_data["email"]
         user.first_name = self.cleaned_data["first_name"]
         user.last_name = self.cleaned_data["last_name"]
-        user.age = self.cleaned_data["age"]
-        user.location = self.cleaned_data["location"]
+
         if commit:
             user.save()
         return user
   
+class UserProfileForm(ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ("location", "age")

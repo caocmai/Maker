@@ -1,25 +1,27 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-  <h3>Sign Up <small class="text-muted">to create your own wiki pages!</small></h3>
+<div class="container">
+  <h3>Sign Up <small class="text-muted">to find your perfect match!</small></h3>
   <hr>
-      <div class="row">
-        <div class="col">
-          <form method="post" class="mx-auto">
-            {% csrf_token %}
-            {% for field in form %}
-                {% for error in field.errors %}
-                    <p class="text-danger">{{ error }}</p>
-                {% endfor %}
-                <div class="form-group row">
-                    <div class="col-8">
-                      <label for="id_{{ field.name }}">{{ field.label|title }}:</label>
-                      <input class="form-control" type="{% if "password" in field.name %}password{% else %}text{% endif %}" name="{{ field.name }}" id="id_{{ field.name }}" required>
-                    </div>
-                </div>
-            {% endfor %}
-            <button type="submit" class="btn btn-success">Sign up</button>
-          </form>
+  <div class="content-section">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Join Today</legend>
+            {{ form|crispy }}
+            {{ profile_form|crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Sign Up</button>
         </div>
-      </div>
+    </form>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            Already Have An Account? <a class="ml-2" href="{% url 'login' %}">Sign In</a>
+        </small>
+    </div>
+  </div>
+</div>
 {% endblock %}

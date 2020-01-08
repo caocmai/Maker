@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'registrants'
+
+    'crispy_forms',
+    'registrants',
 ]
 
 MIDDLEWARE = [
@@ -146,3 +148,5 @@ try:
     from maker.local_settings import *
 except ImportError:
     pass
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
