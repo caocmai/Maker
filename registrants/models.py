@@ -7,6 +7,7 @@ class UserProfile(models.Model):
 
     location = models.CharField(max_length=30)
     age = models.IntegerField()
+    # image = models.ImageField(upload_to='profile_image', blank=True)
 
     def __str__(self):
         return self.user.username
