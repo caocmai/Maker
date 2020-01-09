@@ -137,9 +137,9 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # LOGIN_REDIRECT_URL = reverse_lazy('code-list-project')
 # LOGOUT_REDIRECT_URL = "/"
 
-# # Emails
-# EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
-# EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
+# # To Reset Password with email
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails_reset_pw")
 
 # PROTIP:
 # Need to override settings? Create a local_settings.py file

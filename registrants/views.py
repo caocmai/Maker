@@ -8,14 +8,6 @@ from registrants.models import UserProfile
 from django.contrib.auth import authenticate, login
 
 
-
-# class SignUpView(SuccessMessageMixin, CreateView):
-#     form_class = UserCreationForm
-#     success_url = reverse_lazy('test-page')
-#     # success_url = "test/"
-#     template_name = "registration/signup.html"
-#     success_message = "An account was created successfully"
-
 # When have time look at Corey's tutorial on this for creating user profile
 def register(request):
     if request.method == "POST":
@@ -46,7 +38,6 @@ def register(request):
     return render(request, "registration/signup.html", context)
 
 
-
 def view_profile(request, pk=None):
     if pk:
         user = User.objects.get(pk=pk)
@@ -56,16 +47,16 @@ def view_profile(request, pk=None):
     return render(request, 'registrants/user_profile.html', args)
 
 
-# Create your views here.
-
 class Testing(CreateView):
     def get(self, request):
         return render(request, "registration/test.html", {"test": "test"})
+
 
 class Home(CreateView):
     
     def get(self, request):
         return render(request, "base.html", {"test": "test"})
+
 
 class AllUsers(CreateView):
 
@@ -109,11 +100,11 @@ class MaleUser(CreateView):
     model = User
 
     def get(self, request):
-        male_user = self.get_queryset().filter(userprofile__gender="M")
+        male_user = self.get_queryset().filter(userprofile__gender="M") # double underscore gender becuase extended model of User called userprofile
         return render(request, 'registrants/filtered_users.html', {'users': male_user})
 
 class FemaleUser(CreateView):
 
     def get(self, request):
-        female_user = User.objects.filter(userprofile__gender="F")
+        female_user = User.objects.filter(userprofile__gender="F")  # __ because it's an extended model to the User, so need it
         return render(request, 'registrants/filtered_users.html', {'users': female_user})
