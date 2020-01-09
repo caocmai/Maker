@@ -122,7 +122,7 @@ h4{
 
 .card{
     margin: 1vw 4vw 0vw 4vw;
-    padding: 0vw 8vw 2vw 8vw;
+    padding: 0% 8% 0% 8%;
     grid-area: form;
     background: #40413A;
     border-radius: 50px;
@@ -181,9 +181,9 @@ h4{
 /* MAINPAGE CSS STARTS HERE */
 
 #nav-top-bar{
-    background: #22241B;
+    background: rgb(78, 78, 78);
     width: 100%;
-    padding: 15px;
+    padding: 10px;
 }
 #nav-top-bar a{
     color: #FFCCC2;
@@ -195,11 +195,10 @@ h4{
     background-color: #22241B;
 }
 #mainlogo{
-    margin-top: 6px;
+    margin-top: 3px;
     margin-left: 40px;
     position: absolute;
     width: 60px;
-    background: #22241B;
     border-style: none;
     -webkit-animation: heartbeat 1.5s ease-in-out infinite both;
 	    animation: heartbeat 1.5s ease-in-out infinite both;
@@ -303,10 +302,10 @@ h4{
     border-radius: 20px;
 }
 
-#id_last_name, #id_first_name, #id_username, #id_email, #id_password1, #id_password2, #id_location, #id_age {
+#id_password, #id_last_name, #id_first_name, #id_username, #id_email, #id_password1, #id_password2, #id_location, #id_age {
     background: #22241b;
     color: #e6984e;
-    border-style: none;
+    border: 1px solid;
     border-radius: 20px;
     width: 120px;
     height: 25px;
@@ -314,6 +313,7 @@ h4{
     font-size: 14px;
     font-family: 'Raleway', sans-serif;
     font-weight: bold;
+    text-align: center;
 }
 
 
@@ -344,4 +344,72 @@ button{
     width: 80px;
     height: 25px;
     border-style: none;
+}
+
+#dropmenu{
+    background: #40413A;
+}
+#divider{
+    color: #9FC180;
+}
+
+h2{
+    margin: 5% 0% 0% 5%;
+    color: #e6984e;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+}
+
+#text{
+    color: #9FC180;
+}
+label{
+    color: #9FC180;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+}
+#edit_form{
+    margin: 2% 0% 0% 5%;
+}
+
+#loginbtn{
+    background: #e6984e;
+    color: #40413A;
+    border-radius: 18px;
+    width: 80px;
+    height: 35px;
+    border-style: none;
+}
+
+#forgotbtn{
+    background: #a73420;
+    color: #22241b;
+    border-radius: 15px;
+    width: 200px;
+    height: 35px;
+    border-style: none;
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+#forgotform{
+    padding-left: 24%;
+    margin: 2% 0% 2% 0%;
+}
+
+#col8{
+    padding-left: 1%;
+    padding-bottom: 2%;
+}
+
+h3{
+    margin: 5% 0% 5% 17%;
+    color: #e6984e;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+
 }
