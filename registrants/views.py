@@ -9,20 +9,21 @@ from django.contrib.auth import authenticate, login
 
 
 # When have time look at Corey's tutorial on this for creating user profile
+# Since user is model is extended need two forms (form and profile_form)
 def register(request):
-    if request.method == "POST":
-        form = ExtendedUserCreationForm(request.POST)
+    if request.method == 'POST':
+        user_form = ExtendedUserCreationForm(request.POST)
         profile_form = UserProfileForm(request.POST, request.FILES)
 
-        if form.is_valid() and profile_form.is_valid():
-            user = form.save()
+        if user_form.is_valid() and profile_form.is_valid():
+            user = user_form.save()
 
             profile = profile_form.save(commit=False)
             profile.user = user
             profile.save()
 
-            username = form.cleaned_data.get("username")
-            password = form.cleaned_data.get("password1")
+            username = user_form.cleaned_data.get('username')
+            password = user_form.cleaned_data.get('password1')
             user = authenticate(username=username, password=password)
             login(request, user)
             
@@ -49,13 +50,13 @@ def view_profile(request, pk=None):
 
 class Testing(CreateView):
     def get(self, request):
-        return render(request, "registration/test.html", {"test": "test"})
+        return render(request, 'registration/test.html', {'test': 'test'})
 
 
 class Home(CreateView):
     
     def get(self, request):
-        return render(request, "base.html", {"test": "test"})
+        return render(request, 'base.html', {'test': 'test'})
 
 
 class AllUsers(CreateView):
@@ -74,8 +75,14 @@ def update_profile(request):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
-            messages.success(request, ('Your profile was successfully updated! Please re-login to your new account!'))
-            return redirect('all-users-page')
+            messages.success(request, ('Your profile was successfully updated!'))
+            
+            # This is to get the username and password so you can log a user in after they update their profile
+            username = user_form.cleaned_data.get('username')
+            password = user_form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            return redirect('view-profile-page')
         else:
             messages.error(request, ('Please correct the error below.'))
     else:

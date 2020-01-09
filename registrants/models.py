@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class UserProfile(models.Model): # Now django will refer to this as userprofile
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    location = models.CharField(max_length=30)
+    location = models.CharField(max_length=30, help_text='Enter the city')
     age = models.IntegerField()
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
 

@@ -3,7 +3,7 @@
 
 
 {% block content %}
-<h1>edit page</h1>
+<h2>Edit your profile here</h2>
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ user_form | crispy }}
