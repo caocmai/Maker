@@ -2,7 +2,7 @@ from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.models import User
-from .models import UserProfile
+from .models import UserProfile, UserPost
 
 
 class ExtendedUserCreationForm(UserCreationForm):
@@ -12,7 +12,6 @@ class ExtendedUserCreationForm(UserCreationForm):
     # age = forms.IntegerField(required=True, label="Age")
     # location = forms.CharField(required=True, label="Location")
     # picture = forms.FileField(label="Upload Image")
-
 
     class Meta:
         model = User
@@ -29,8 +28,17 @@ class ExtendedUserCreationForm(UserCreationForm):
             user.save()
         return user
   
+
 class UserProfileForm(ModelForm):
+
     class Meta:
         model = UserProfile
         fields = ("location", "age", "image", "gender")
         widgets = {'gender': forms.RadioSelect}
+
+
+class PostForm(forms.ModelForm):
+
+    class Meta:
+        model = UserPost
+        fields = ("content", )

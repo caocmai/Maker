@@ -10,11 +10,12 @@
     <p>Age: {{ user.userprofile.age }}</p>
     <p>Location: {{ user.userprofile.location }}</p>
     <p>Gender: {{ user.userprofile.gender }}</p>
+    <a href="{% url 'user-post-page' %}">Add Post</a>
 
 
-    {% for post in user.userpost_set.all reversed %}
-        <p>{{ post.content }}</p>
-        <small class="text-muted">Posted by: {{ post.from_user }} -- {{ post.timestamp }}</small>
+    {% for complement in user.complement_set.all reversed %}
+        <p>{{ complement.content }}</p>
+        <small class="text-muted">Posted by: {{ complement.from_user }} -- {{ complement.timestamp }}</small>
         <hr>
     {% empty %}
         <p>No comments yet</p>

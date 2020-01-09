@@ -1,10 +1,10 @@
-from django.shortcuts import render, redirect
-from registrants.forms import ExtendedUserCreationForm, UserProfileForm
+from django.shortcuts import render, redirect, get_object_or_404
+from registrants.forms import ExtendedUserCreationForm, UserProfileForm, PostForm
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView
 from django.contrib import messages
 from django.contrib.auth.models import User
-from registrants.models import UserProfile
+from registrants.models import UserProfile, UserPost
 from django.contrib.auth import authenticate, login
 
 
@@ -115,3 +115,23 @@ class FemaleUser(CreateView):
     def get(self, request):
         female_user = User.objects.filter(userprofile__gender="F")  # __ because it's an extended model to the User, so need it
         return render(request, 'registrants/filtered_users.html', {'users': female_user})
+
+def add_post(request):
+    """User can add postings"""
+    form = PostForm(request.POST)
+
+    if request.method == "POST":
+        if form.is_valid():
+          comment = form.save(commit=False)
+          # Need to do this for all models.ForeignKey!!!!!
+          comment.from_user = request.user
+          comment.save()
+          return redirect('view-profile-page')
+    else:
+        form = PostForm()
+    return render(request, 'registrants/user_post.html', {'form': form})
+
+def login_view_profile(request):
+    user = request.user
+    args = {'user': user}
+    return render(request, 'registrants/login_user_profile.html', args)

@@ -19,3 +19,11 @@ class UserProfile(models.Model): # Now django will refer to this as userprofile
 
     def __str__(self):
         return self.user.username
+
+class UserPost(models.Model):
+    from_user = models.ForeignKey(User, on_delete=models.PROTECT)
+    content = models.TextField(max_length=160)
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.content
