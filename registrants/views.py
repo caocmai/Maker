@@ -107,14 +107,21 @@ class MaleUser(CreateView):
     model = User
 
     def get(self, request):
-        male_user = self.get_queryset().filter(userprofile__gender="M") # double underscore gender becuase extended model of User called userprofile
-        return render(request, 'registrants/filtered_users.html', {'users': male_user})
+        male_users = self.get_queryset().filter(userprofile__gender="M") # double underscore gender becuase extended model of User called userprofile
+        return render(request, 'registrants/filtered_users.html', {'users': male_users})
 
 class FemaleUser(CreateView):
 
     def get(self, request):
-        female_user = User.objects.filter(userprofile__gender="F")  # __ because it's an extended model to the User, so need it
-        return render(request, 'registrants/filtered_users.html', {'users': female_user})
+        female_users = User.objects.filter(userprofile__gender="F")  # __ because it's an extended model to the User, so need it
+        return render(request, 'registrants/filtered_users.html', {'users': female_users})
+
+class NonBinaryUser(CreateView):
+
+    def get(self, request):
+        non_binary_users = User.objects.filter(userprofile__gender="N")  # __ because it's an extended model to the User, so need it
+        return render(request, 'registrants/filtered_users.html', {'users': non_binary_users})
+
 
 def add_post(request):
     """User can add postings"""

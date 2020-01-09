@@ -1,23 +1,35 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
+{% load static %}
+
 
 {% block content %}
-<div class="container">
-  <h3>Sign Up <small class="text-muted">to find your perfect match!</small></h3>
-  <hr>
-  <div class="content-section">
-    <form method="post" enctype="multipart/form-data">
-      {% csrf_token %}
-      {{ form | crispy }}
-      {{ profile_form | crispy }}
-      <button type="submit">Sign Up</button>
-    </form>
+{% if request.user.is_authenticated %}
+<h1>Hi, {{ user.get_username }}</h1>
+
+    
+  {% else %}
+
+  <div class="container">
+    <img src="{% static 'images/logo.png' %}" alt="">
+    <h1>A D A</h1>
+    <H4>Another Dating APP</H4>
+<div class="card">
+    <!-- Jango form here-->
+    <form method="post" enctype="multipart/form-data" id="formtest">
+    {% csrf_token %}
+    {{ form | crispy | linebreaks }}
+    {{ profile_form | crispy | linebreaks }}               
+    <button type="submit">Sign Up</button>
+    </form>  
 
     <div class="border-top pt-3">
         <small class="text-muted">
             Already Have An Account? <a class="ml-2" href="{% url 'login' %}">Sign In</a>
         </small>
     </div>
-  </div>
-</div>
+</div> 
+
+  {% endif %}
+
 {% endblock %}

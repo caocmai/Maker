@@ -1,4 +1,6 @@
 {% load static %}
+{% load crispy_forms_tags %}
+
 
 <DOCTYPE html>
 <html lang="en">
@@ -8,16 +10,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates:100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 
     <title>Document</title>
 </head>
 <body>
-    <a href="{% url 'all-users-page' %}">All Users</a>
+    <!-- <a href="{% url 'all-users-page' %}">All Users</a>
     <a href="{% url 'random-user-page' %}">Random User</a>
     <a href="{% url 'male-user-page' %}">Male Users</a>
     <a href="{% url 'female-user-page' %}">Female Users</a>
+    <a href="{% url 'non-binary-user-page' %}">Non-binary Users</a> -->
 
 
     {% if request.user.is_authenticated %}
@@ -25,11 +31,32 @@
     <a href="{% url 'profile-update-page' %}" class="btn btn-info">Update Profile</a>
     <a href="{% url 'logout' %}">Logout</a>
     <p><a href="{% url 'password_reset' %}">reset password</a></p>
+    <div class="navbar-prep" >
+        <img src="{% static 'images/mainlogo.png' %}" id="mainlogo" alt="">
+        <ul class="nav justify-content-end" id="nav-top-bar">
+            
+            <li class="nav-item">
+                <a class="nav-link active" href="#">My profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">My chats</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Share</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Log out</a>
+            </li>
+        </ul>
+    </div>
+
     {% else %}
     <a href="{% url 'login' %}">Login</a>
     <a href="{% url 'sign-up-page' %}">Sign Up</a>
-    {% endif %}
 
+    </div> 
+    
+    {% endif %}
 
     Hello,
     {% if request.user.is_authenticated %}
