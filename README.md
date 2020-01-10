@@ -52,6 +52,8 @@ $ python3 manage.py runserver
 
 * [Django](https://www.djangoproject.com/) - The web framework used
 * [Python](https://www.python.org/) - Language
+* [HTML](https://en.wikipedia.org/wiki/HTML) - For webpage
+* [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) - To style
 
 
 ## Django Addons
@@ -79,4 +81,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 
 ## Acknowledgments
-From this project we learn how to build a chat app and how to let the user upload images.
+From this project we learned how to build a chat app and how to let the user upload images.
