@@ -46,6 +46,13 @@ To run project in an IDE, run the following in terminal
 ```
 python3 manage.py runserver
 ```
+
+## Built With
+
+* [Django](https://www.djangoproject.com/) - The web framework used
+* [Python](https://www.python.org/) - Language
+
+
 ## Django Addons
 This project uses the following third party addons
 * [crispy_forms](https://django-crispy-forms.readthedocs.io/en/latest/)
@@ -56,13 +63,6 @@ This project uses the following third party addons
 ## Deployment
 
 Project can be accessed at https://maker-s-a.herokuapp.com/
-
-
-## Built With
-
-* [Django](https://www.djangoproject.com/) - The web framework used
-* [Python](https://www.python.org/) - Language
-
 
 ## Authors
 
