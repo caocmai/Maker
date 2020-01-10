@@ -5,8 +5,16 @@
 
 {% block content %}
 {% if request.user.is_authenticated %}
-<h1>Hi, {{ user.get_username }}</h1>
 
+<div class="container">
+
+  <img src="{% static 'images/logo.png' %}" alt="">
+  <h1>A D A</h1>
+  <br>
+  <H4>Another Dating APP</H4>
+  <h5>Welcome back, {{ user.get_username }}</h5>
+  <a href="{% url 'all-users-page' %}" class="btn btn-success" id="loginbtn">See All Users</a>
+  </div>
     
   {% else %}
   <div class="container">

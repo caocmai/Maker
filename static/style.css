@@ -388,7 +388,7 @@ label{
     background: #e6984e;
     color: #40413A;
     border-radius: 18px;
-    width: 80px;
+    width: 100px;
     height: 35px;
     border-style: none;
 }
@@ -491,5 +491,14 @@ a:active{
 
 .stripe-button-el {
     margin-top: 20px;
+    margin-left: 80px;
+}
+
+#reset_form {
+    margin-left: 160px;
+}
+
+#room-name-input, #room-name-submit {
+    margin-top: 10px;
     margin-left: 60px;
 }

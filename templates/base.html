@@ -24,7 +24,6 @@
     <a href="{% url 'female-user-page' %}">Female Users</a>
     <a href="{% url 'non-binary-user-page' %}">Non-binary Users</a> -->
 
-    {% if request.user.is_authenticated %}
 
     <div class="navbar-prep" id="navbartwo">
         <a href="{% url 'all-users-page' %}">
@@ -33,14 +32,21 @@
         <ul class="nav justify-content-end" id="nav-top-bar">
 
             <li class="nav-item">
-                <a class="nav-link active">Hello,
-                    {{ user.get_username }}</a>
+                <a class="nav-link active">
+                    Hello, 
+                {% if user.get_username %}
+                    {{ user.get_username }}
+                  {% else %}
+                    Guest
+                  {% endif %}</a>
 
             </li>
-            
+            {% if request.user.is_authenticated %}
+
             <li class="nav-item">
                 <a class="nav-link active" href="{% url 'view-profile-page' %}">My profile</a>
             </li>
+           
             <li class="nav-item">
                 <!-- <a class="nav-link" href="#">My chats</a> -->
             </li>
@@ -58,29 +64,26 @@
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'logout' %}">Log out</a>
             </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link active" href="{% url 'login' %}">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="{% url 'sign-up-page' %}">Sign Up</a>
+            </li>
         </ul>
+        {% endif %}
     </div>
 
-    {% else %}
-    <a href="{% url 'login' %}">Login</a>
-    <a href="{% url 'sign-up-page' %}">Sign Up</a>
-
-    </div> 
-    
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+            </div>
+        {% endfor %}
     {% endif %}
 
-    
-
-    {% if messages %}
-    {% for message in messages %}
-        <div class="alert alert-{{ message.tags }}">
-        {{ message }}
-        </div>
-    {% endfor %}
-{% endif %}
-
     {% block content %}
-
     {% endblock %}
 </body>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

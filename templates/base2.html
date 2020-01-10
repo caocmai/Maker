@@ -23,14 +23,7 @@
     
     <br><br>
     {% if request.user.is_authenticated %}
-    <div class="container">
-
-    <img src="{% static 'images/logo.png' %}" alt="">
-    <h1>A D A</h1>
-    <H4>Another Dating APP</H4>
-
-    <a href="{% url 'all-users-page' %}" class="btn btn-success" id="loginbtn">See All Users</a>
-    </div>
+    
    
     {% endif %}
 
