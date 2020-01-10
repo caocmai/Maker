@@ -5,24 +5,8 @@
     {% for user in users %}
         {% if user.username == "admin" %}
         {% else %}
+        {% include "registrants/partials/user_card.html" %}
 
-            <div class="col-md-4">
-                <figure class="card card-product-grid card-lg" id="profile-card">
-                    <div class="img-wrap" id="profile-img">
-                        <img src="{{ user.userprofile.image.url }}">
-                    </div>
-                    <figcaption class="info">
-                        <a class="title">New Profile</a>
-                        <p class="text-muted">New York</p>
-                    </figcaption>
-                    <div class="bottom-wrap">
-                        <a href="" class="btn btn-primary float-right" id="profile-btn">Start chat!</a>
-                        <div class="age-wrap" id="age">
-                            <span class="age">22</span>
-                        </div> <!-- price-wrap.// -->
-                    </div> <!-- bottom-wrap.// -->
-                </figure>
-            </div> <!-- col.// -->
     
         {% endif %}
     {% endfor %}

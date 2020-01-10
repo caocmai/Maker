@@ -1,8 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container" id="profilecont">
-    <h1>Profile</h1>
+    <!-- <h1>Profile</h1>
     <p>Username: {{ user }}</p>
     <p>First name: {{ user.first_name }}</p>
     <p>Last name: {{ user.last_name }}</p>
@@ -20,9 +19,11 @@
         <p>No comments yet</p>
     {% endfor %}
 
-    <img src="{{ user.userprofile.image.url }}" style="width:100%; height: 450px !important;" >
+    <img src="{{ user.userprofile.image.url }}" style="width:100%; height: 450px !important;" > -->
+
+    {% include "registrants/partials/user_card.html" %}
 
 
-</div>
+
 
 {% endblock %}

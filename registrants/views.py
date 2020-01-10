@@ -39,13 +39,6 @@ def register(request):
     return render(request, "registration/signup.html", context)
 
 
-def view_profile(request, pk=None):
-    if pk:
-        user = User.objects.get(pk=pk)
-    else:
-        user = request.user
-    args = {'user': user}
-    return render(request, 'registrants/user_profile.html', args)
 
 
 class Testing(CreateView):
@@ -142,3 +135,9 @@ def login_view_profile(request):
     user = request.user
     args = {'user': user}
     return render(request, 'registrants/login_user_profile.html', args)
+
+
+def view_profile(request, pk=None):
+    user = User.objects.get(pk=pk)
+    args = {'user': user}
+    return render(request, 'registrants/user_profile.html', args)

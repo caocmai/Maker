@@ -6,11 +6,11 @@ from registrants.views import Testing, register,view_profile, Home, AllUsers, up
 
 
 urlpatterns = [
+    path('', register, name='home-page'),
     path('register/', register, name='sign-up-page'),
     path('test/', Testing.as_view(), name='test-page'),
     path('user_profile/', login_view_profile, name='view-profile-page'),
     path('user_profile/<int:pk>', view_profile, name='view-profile-page-pk'),
-    path('', register, name='home-page'),
     path('all_users/', AllUsers.as_view(), name='all-users-page'), 
     path('user_profile/edit', update_profile, name='profile-update-page'),
     path('random_user/', RandomUser.as_view(), name='random-user-page'),

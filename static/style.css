@@ -344,6 +344,7 @@ button{
     width: 80px;
     height: 25px;
     border-style: none;
+    margin-bottom: 10px;
 }
 
 #dropmenu{
@@ -413,3 +414,32 @@ h3{
     font-weight: bold;
 
 }
+#formtest{
+    margin-bottom: 10px;
+}
+#account{
+    color: #e6984e;
+    font-weight: bold;
+    font-size: 18px;
+}
+a{
+    color:#9fc180;
+}
+a::before{
+    color: #9FC180;
+}
+a:active{
+    color: #9FC180;
+}
+#edit-btn{
+    background: #e6984e;
+    color: #40413A;
+    border-radius: 18px;
+    width: 120px;
+    height: 35px;
+    border-style: none;
+}
+
+/* .card-img-top{
+    height: 150px;
+  } */

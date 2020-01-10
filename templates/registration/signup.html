@@ -9,13 +9,17 @@
 
     
   {% else %}
-
   <div class="container">
     <img src="{% static 'images/logo.png' %}" alt="">
     <h1>A D A</h1>
     <H4>Another Dating APP</H4>
 <div class="card">
     <!-- Jango form here-->
+    <div class="border-top pt-3">
+      <small id="account">
+          Already Have An Account? <a href="{% url 'login' %}">Sign In</a>
+      </small>
+  </div>
     <form method="post" enctype="multipart/form-data" id="formtest">
     {% csrf_token %}
     {{ form | crispy | linebreaks }}
@@ -23,11 +27,7 @@
     <button type="submit">Sign Up</button>
     </form>  
 
-    <div class="border-top pt-3">
-        <small class="text-muted">
-            Already Have An Account? <a class="ml-2" href="{% url 'login' %}">Sign In</a>
-        </small>
-    </div>
+   
 </div> 
 
   {% endif %}

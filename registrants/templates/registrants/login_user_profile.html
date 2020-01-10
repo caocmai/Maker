@@ -30,16 +30,17 @@
                     <img src="{{ user.userprofile.image.url }}">
                 </div>
                 <figcaption class="info">
-                    <a class="title">New Profile</a>
-                    <p class="text-muted">New York</p>
+                    <a class="title">{{ user.first_name }} {{ user.last_name }}</a>
+                    <p class="text-muted">{{ user.userprofile.location }}</p>
                 </figcaption>
                 <div class="bottom-wrap">
-                    <a href="" class="btn btn-primary float-right" id="profile-btn">Start chat!</a>
+                    <a href="{% url 'profile-update-page' %}" class="btn btn-primary float-right" id="edit-btn">Edit profile</a>
                     <div class="age-wrap" id="age">
-                        <span class="age">22</span>
+                        <span class="age">Age: {{ user.userprofile.age }}</span>
                     </div> <!-- price-wrap.// -->
                 </div> <!-- bottom-wrap.// -->
             </figure>
+
         </div> <!-- col.// -->
 
 <!-- </div> -->
