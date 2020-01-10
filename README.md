@@ -3,7 +3,7 @@
 
 Maker is a dating app in which you can post and view profiles, also you can chat and tip people you admire.
 
-### How it works
+### Basic Site Walk-through
 
 New users are presented with a splash page with the ability to sign up for an account. Once a user is logged in they are taken to a page listing all current users on the website. The user can then find/filter other users based on gender. User can initiate a chat with another user. In addition, user can gift a small monetary amount to a user that they admire. 
 
@@ -26,7 +26,7 @@ username: admin
 email: admin@admin.com
 password: admin
 ```
-.To test the payment method
+.To test the payment functionality
 
 ```
 email: email@gmail.com
