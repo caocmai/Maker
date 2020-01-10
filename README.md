@@ -1,7 +1,7 @@
 # maker
 ![alt text](https://github.com/caocmai/maker/blob/master/static/images/logo.png)
 
-Maker is a dating app in which users can create and view profiles. Additionally, users can chat and send gifts to people they admire.
+Maker is a dating app in which users can create and view profiles. Additionally, users can chat and send monetary gifts to people they admire.
 
 ### Basic Site Walk-through
 
