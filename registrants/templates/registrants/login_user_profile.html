@@ -27,10 +27,13 @@
         <figure class="card card-product-grid card-lg" id="profile-card">
             <div class="img-wrap" id="profile-img">
                 <img src="{{ user.userprofile.image.url }}" class="card-img-top">
-                
+
             </div>
             <figcaption class="info">
                 <a class="title">{{ user.first_name }} {{ user.last_name }}</a>
+                <p class="text-muted">Username: {{ user.username }}</p>
+                <p class="text-muted">Email: {{ user.email }}</p>
+
                 <p class="text-muted">City: {{ user.userprofile.location }}</p>
                 <p class="text-muted">Gender: {{ user.userprofile.gender }}</p>
                 <p class="text-muted">Age: {{ user.userprofile.age }}</p>

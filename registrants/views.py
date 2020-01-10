@@ -28,16 +28,16 @@ def register(request):
             password = user_form.cleaned_data.get('password1')
             user = authenticate(username=username, password=password)
             login(request, user)
-            
+
             messages.success(request, f'Account created for {username}!')
 
             return redirect('all-users-page')
     
     else:
-        form = ExtendedUserCreationForm()
+        user_form = ExtendedUserCreationForm()
         profile_form = UserProfileForm()
 
-    context = {'form' : form, 'profile_form' : profile_form}
+    context = {'form' : user_form, 'profile_form' : profile_form}
     return render(request, "registration/signup.html", context)
 
 
@@ -48,7 +48,7 @@ class Testing(CreateView):
 
 
 class Home(CreateView):
-    
+
     def get(self, request):
         return render(request, 'base.html', {'test': 'test'})
 
@@ -70,7 +70,7 @@ def update_profile(request):
             user_form.save()
             profile_form.save()
             messages.success(request, ('Your profile was successfully updated!'))
-            
+
             # This is to get the username and password so you can log a user in after they update their profile
             username = user_form.cleaned_data.get('username')
             password = user_form.cleaned_data.get('password1')
