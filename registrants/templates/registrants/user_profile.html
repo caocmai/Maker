@@ -28,6 +28,7 @@
             </div>
             <figcaption class="info">
                 <a class="title">{{ user.first_name }} {{ user.last_name }}</a>
+                <p class="text-muted">Username: {{ user.username }}</p>
                 <p class="text-muted">City: {{ user.userprofile.location }}</p>
                 <p class="text-muted">Gender: {{ user.userprofile.gender }}</p>
                 <p class="text-muted">Age: {{ user.userprofile.age }}</p>
@@ -46,7 +47,7 @@
 
     </div> <!-- col.// -->
 
-    
+
     <br>
     <div id="posting">
         <h2>{{ user.first_name }}'s Postings</h2><br>

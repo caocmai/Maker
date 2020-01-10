@@ -1,5 +1,4 @@
 {% extends 'base2.html' %}
-{% load crispy_forms_tags %}
 {% load static %}
 
 
@@ -15,7 +14,7 @@
   <h5>Welcome back, {{ user.get_username }}</h5>
   <a href="{% url 'all-users-page' %}" class="btn btn-success" id="loginbtn">See All Users</a>
   </div>
-    
+
   {% else %}
   <div class="container">
     <img src="{% static 'images/logo.png' %}" alt="">
@@ -30,13 +29,13 @@
   </div>
     <form method="post" enctype="multipart/form-data" id="formtest">
     {% csrf_token %}
-    {{ form | crispy | linebreaks }}
-    {{ profile_form | crispy | linebreaks }}               
+    {{ form.as_p }}
+    {{ profile_form.as_p }}
     <button type="submit">Sign Up</button>
-    </form>  
+    </form>
 
-   
-</div> 
+
+</div>
 
   {% endif %}
 
