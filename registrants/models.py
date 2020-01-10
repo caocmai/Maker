@@ -14,7 +14,7 @@ class UserProfile(models.Model): # Now django will refer to this as userprofile
         ('F', 'Female'),
         ('N', 'Non-Binary')
     )
-    
+
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES, default='M')
 
     def __str__(self):
