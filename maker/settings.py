@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'payments.apps.PaymentsConfig',
     'registrants',
     'channels',
     'chat',
@@ -143,6 +144,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+# stripe
+STRIPE_SECRET_KEY = 'sk_test_URzgE3o9NIn3x3XkSNeqpBOi00uvr3mEGB'
+STRIPE_PUBLISHABLE_KEY = 'pk_test_COEOKTOmq1GU4jvt6MZSwL5s000u4n9dJv'
 
 # # Where to redirect during authentication
 # LOGIN_REDIRECT_URL = reverse_lazy('code-list-project')
