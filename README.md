@@ -13,7 +13,7 @@ New users are presented with a splash page with the ability to sign up for an ac
 * Profile creation with image upload
 * Authenticated user can make posts
 * Filtering profiles
-* Chat
+* Chat-note: currently working locally, but not on herokuapp
 * Payment
 
 ### Prerequisites
