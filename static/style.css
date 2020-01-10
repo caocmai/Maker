@@ -305,6 +305,14 @@ h4{
     border-radius: 20px;
 }
 
+#gift-btn {
+    background: rgb(193, 172, 128);
+    border-style: none;
+    color: #40413A;
+    font-weight: bold;
+    border-radius: 20px;
+}
+
 #id_password, #id_last_name, #id_first_name, #id_username, #id_email, #id_password1, #id_password2, #id_location, #id_age {
     background: #22241b;
     color: #e6984e;
