@@ -1,5 +1,6 @@
 {% load static %}
 
+
 <DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,14 +9,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=PT+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates:100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 
     <title>Document</title>
 </head>
 <body>
+    <!-- <a href="{% url 'all-users-page' %}">All Users</a>
+    <a href="{% url 'random-user-page' %}">Random User</a>
+    <a href="{% url 'male-user-page' %}">Male Users</a>
+    <a href="{% url 'female-user-page' %}">Female Users</a>
+    <a href="{% url 'non-binary-user-page' %}">Non-binary Users</a> -->
+
+    {% if request.user.is_authenticated %}
+
+    <div class="navbar-prep" id="navbartwo">
+        <a href="{% url 'all-users-page' %}">
+        <img src="{% static 'images/mainlogo.png' %}" id="mainlogo" alt="">
+        </a>
+        <ul class="nav justify-content-end" id="nav-top-bar">
+
+            <li class="nav-item">
+                <a class="nav-link active">Hello,
+                    {{ user.get_username }}</a>
+
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link active" href="{% url 'view-profile-page' %}">My profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">My chats</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Find Users</a>
+                <div class="dropdown-menu" id="dropmenu">
+                  <a class="dropdown-item" href="{% url 'all-users-page' %}">All Users</a>
+                  <a class="dropdown-item" href="{% url 'female-user-page' %}">Female Users</a>
+                  <a class="dropdown-item" href="{% url 'male-user-page' %}">Male Users</a>
+                  <a class="dropdown-item" href="{% url 'non-binary-user-page' %}">Non-Binary Users Users</a>
+
+                  <div class="dropdown-divider" id="divider"></div>
+                  <a class="dropdown-item" href="{% url 'random-user-page' %}">Random User</a>
+                </div>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Log out</a>
+            </li>
+        </ul>
+    </div>
+
+    {% else %}
+    <a href="{% url 'login' %}">Login</a>
+    <a href="{% url 'sign-up-page' %}">Sign Up</a>
+
+    </div> 
+    
+    {% endif %}
+
+    
+
+    {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+        {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
     {% block content %}
+
     {% endblock %}
 </body>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </html>

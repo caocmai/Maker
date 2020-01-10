@@ -1,25 +1,35 @@
-{% extends 'base.html' %}
+{% extends 'base2.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
 
 {% block content %}
-  <h3>Sign Up <small class="text-muted">to create your own wiki pages!</small></h3>
-  <hr>
-      <div class="row">
-        <div class="col">
-          <form method="post" class="mx-auto">
-            {% csrf_token %}
-            {% for field in form %}
-                {% for error in field.errors %}
-                    <p class="text-danger">{{ error }}</p>
-                {% endfor %}
-                <div class="form-group row">
-                    <div class="col-8">
-                      <label for="id_{{ field.name }}">{{ field.label|title }}:</label>
-                      <input class="form-control" type="{% if "password" in field.name %}password{% else %}text{% endif %}" name="{{ field.name }}" id="id_{{ field.name }}" required>
-                    </div>
-                </div>
-            {% endfor %}
-            <button type="submit" class="btn btn-success">Sign up</button>
-          </form>
-        </div>
-      </div>
+{% if request.user.is_authenticated %}
+<h1>Hi, {{ user.get_username }}</h1>
+
+    
+  {% else %}
+  <div class="container">
+    <img src="{% static 'images/logo.png' %}" alt="">
+    <h1>A D A</h1>
+    <H4>Another Dating APP</H4>
+<div class="card">
+    <!-- Jango form here-->
+    <div class="border-top pt-3">
+      <small id="account">
+          Already Have An Account? <a href="{% url 'login' %}">Sign In</a>
+      </small>
+  </div>
+    <form method="post" enctype="multipart/form-data" id="formtest">
+    {% csrf_token %}
+    {{ form | crispy | linebreaks }}
+    {{ profile_form | crispy | linebreaks }}               
+    <button type="submit">Sign Up</button>
+    </form>  
+
+   
+</div> 
+
+  {% endif %}
+
 {% endblock %}

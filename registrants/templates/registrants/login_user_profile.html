@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- <div class="container">
+    <h1>My Profile</h1>
+    <p>Username: {{ user }}</p>
+    <p>First name: {{ user.first_name }}</p>
+    <p>Last name: {{ user.last_name }}</p>
+    <p>Email: {{ user.email }}</p>
+    <p>Age: {{ user.userprofile.age }}</p>
+    <p>Location: {{ user.userprofile.location }}</p>
+    <p>Gender: {{ user.userprofile.gender }}</p>
+    <a href="{% url 'user-post-page' %}">Add Post</a>
+
+    {% for post in user.userpost_set.all reversed %}
+    <p>{{ post.content }}</p>
+    <small class="text-muted">Posted by: {{ post.from_user }} -- {{ post.timestamp }}</small>
+    <hr>
+    {% empty %}
+        <p>No comments yet</p>
+    {% endfor %}
+
+    <img src="{{ user.userprofile.image.url }}" style="width:100%; height: 450px !important;" > -->
+
+    <h2>My Profile</h2>
+    <div class="col-md-4">
+        <figure class="card card-product-grid card-lg" id="profile-card">
+            <div class="img-wrap" id="profile-img">
+                <img src="{{ user.userprofile.image.url }}" class="card-img-top">
+                
+            </div>
+            <figcaption class="info">
+                <a class="title">{{ user.first_name }} {{ user.last_name }}</a>
+                <p class="text-muted">{{ user.userprofile.location }}</p>
+                <p class="text-muted">Gender: {{ user.userprofile.gender }}</p>
+                <p class="text-muted">Age: {{ user.userprofile.age }}</p>
+            </figcaption>
+            <div class="bottom-wrap">
+                <a href="{% url 'profile-update-page' %}" class="btn btn-primary float-right" id="edit-btn">Edit profile</a>
+                <div class="age-wrap" id="age">
+                    <!-- <span class="age">Age: {{ user.userprofile.age }}</span> -->
+                </div> <!-- price-wrap.// -->
+            </div> <!-- bottom-wrap.// -->
+        </figure>
+
+    </div> <!-- col.// -->
+        <div id="posting">
+            <h2>My Postings</h2><br>
+            <div id="posting_text">
+            {% for post in user.userpost_set.all reversed %}
+                <h5>{{ post.content }}</h5>
+                <small class="text-muted">Posted on {{ post.timestamp }}</small>
+                <hr>
+                {% empty %}
+                    <p id="posting_text">No postings yet</p>
+                {% endfor %}
+            </div>
+            <a href="{% url 'user-post-page' %}" class="btn btn-primary" id="post-btn">Create New Post</a>
+
+        </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3> {% if users %} Total User{{ users|length|pluralize:"s"}}: <small class="text-muted">{{ users|length }}</small>{% endif %}</h3>
+
+<div class="container">
+    {% for user in users %}
+        {% if user.username == "admin" %}
+        {% else %}
+        {% include "registrants/partials/user_card.html" %}
+
+    
+        {% endif %}
+    {% endfor %}
+</div>
+
+{% endblock %}

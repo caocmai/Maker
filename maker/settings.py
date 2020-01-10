@@ -38,10 +38,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+<<<<<<< HEAD
     'payments.apps.PaymentsConfig',
     'registrants',
     'channels',
     'chat',
+=======
+
+    'crispy_forms',
+    'registrants',
+>>>>>>> 9c8e518dc1830e9505eff80cf8e0f76b2576d1f4
 ]
 
 MIDDLEWARE = [
@@ -152,9 +158,9 @@ STRIPE_PUBLISHABLE_KEY = 'pk_test_COEOKTOmq1GU4jvt6MZSwL5s000u4n9dJv'
 # LOGIN_REDIRECT_URL = reverse_lazy('code-list-project')
 # LOGOUT_REDIRECT_URL = "/"
 
-# # Emails
-# EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
-# EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
+# # To Reset Password with email
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails_reset_pw")
 
 # PROTIP:
 # Need to override settings? Create a local_settings.py file
@@ -163,3 +169,11 @@ try:
     from maker.local_settings import *
 except ImportError:
     pass
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/user_profile/'
