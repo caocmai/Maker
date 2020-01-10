@@ -11,17 +11,19 @@ from django.contrib.auth import authenticate, login
 # When have time look at Corey's tutorial on this for creating user profile
 # Since user is model is extended need two forms (form and profile_form)
 def register(request):
+    # When user click submit so it's post
     if request.method == 'POST':
         user_form = ExtendedUserCreationForm(request.POST)
         profile_form = UserProfileForm(request.POST, request.FILES)
 
         if user_form.is_valid() and profile_form.is_valid():
             user = user_form.save()
-
             profile = profile_form.save(commit=False)
+
             profile.user = user
             profile.save()
 
+            # This logs them in
             username = user_form.cleaned_data.get('username')
             password = user_form.cleaned_data.get('password1')
             user = authenticate(username=username, password=password)
@@ -40,6 +42,7 @@ def register(request):
 
 
 class Testing(CreateView):
+
     def get(self, request):
         return render(request, 'registration/test.html', {'test': 'test'})
 
