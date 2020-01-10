@@ -1,7 +1,19 @@
 # maker
 ![alt text](https://github.com/caocmai/maker/blob/master/static/images/logo.png)
 
+Maker is a dating app in which you can post and view profiles, also you can chat and tip people you admire.
 
+### How it works
+
+New users are presented with a splash page with the ability to sign up for an account. Once a user is logged in they are taken to a page listing all current users on the website. The user can then find/filter other users based on gender. User can initiate a chat with another user. In addition, user can gift a small monetary amount to a user that they admire. 
+
+### Features
+
+* Account creation
+* Profile creation with image upload
+* Filtering profiles
+* Chat
+* Payment
 
 ### Prerequisites
 
@@ -14,7 +26,7 @@ username: admin
 email: admin@admin.com
 password: admin
 ```
-.To try the payment method
+.To test the payment method
 
 ```
 email: email@gmail.com
