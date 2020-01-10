@@ -1,4 +1,4 @@
-<div class="col-md-4">
+<div class="col-md">
     <figure class="card card-product-grid card-lg" id="profile-card">
         <div class="img-wrap" id="profile-img">
             <a href="{% url 'view-profile-page-pk' user.id %}"><img class="card-img-top" src="{{ user.userprofile.image.url }}" ></a>
@@ -8,10 +8,11 @@
             <p class="text-muted">{{ user.userprofile.location }}</p>
         </figcaption>
         <div class="bottom-wrap">
-            <a href="" class="btn btn-primary float-right" id="profile-btn">Start chat!</a>
             <div class="age-wrap" id="age">
                 <span class="age">Age: {{ user.userprofile.age }}</span>
             </div> <!-- price-wrap.// -->
+            <a href="#" class="btn btn-primary" id="profile-btn">Start chat!</a>
+
         </div> <!-- bottom-wrap.// -->
     </figure>
 </div> <!-- col.// -->

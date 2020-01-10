@@ -18,16 +18,14 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="{% url 'all-users-page' %}">All Users</a>
+    <!-- <a href="{% url 'all-users-page' %}">All Users</a>
     <a href="{% url 'random-user-page' %}">Random User</a>
     <a href="{% url 'male-user-page' %}">Male Users</a>
     <a href="{% url 'female-user-page' %}">Female Users</a>
-    <a href="{% url 'non-binary-user-page' %}">Non-binary Users</a>
+    <a href="{% url 'non-binary-user-page' %}">Non-binary Users</a> -->
 
     {% if request.user.is_authenticated %}
-    <a href="{% url 'profile-update-page' %}" class="btn btn-info">Update Profile</a>
-    <a href="{% url 'logout' %}">Logout</a>
-    <p><a href="{% url 'password_reset' %}">reset password</a></p>
+
     <div class="navbar-prep" id="navbartwo">
         <a href="{% url 'all-users-page' %}">
         <img src="{% static 'images/mainlogo.png' %}" id="mainlogo" alt="">

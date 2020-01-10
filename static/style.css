@@ -275,10 +275,11 @@ h4{
     background: #40413A;
 }
 #profile-card{
-    width: 80%;
+    width: 100%;
     margin-left: 5%;
     margin-bottom: 5%;
     border-radius: 20px;
+    border-style: none;
     background: #22241B;
     color: #FFCCC2;
     font-family: 'Raleway', sans-serif;
@@ -438,6 +439,15 @@ a:active{
     width: 120px;
     height: 35px;
     border-style: none;
+}
+
+.info a{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#age{
+    font-size: 15px;
 }
 
 /* .card-img-top{

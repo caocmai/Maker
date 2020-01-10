@@ -21,8 +21,26 @@
 
     <img src="{{ user.userprofile.image.url }}" style="width:100%; height: 450px !important;" > -->
 
-    {% include "registrants/partials/user_card.html" %}
+    <div class="col-md-4">
+        <figure class="card card-product-grid card-lg" id="profile-card">
+            <div class="img-wrap" id="profile-img">
+                <img src="{{ user.userprofile.image.url }}" class="card-img-top">
+            </div>
+            <figcaption class="info">
+                <a class="title">{{ user.first_name }} {{ user.last_name }}</a>
+                <p class="text-muted">{{ user.userprofile.location }}</p>
+            </figcaption>
+            <div class="bottom-wrap">
+                <div class="age-wrap" id="age">
+                    <span class="age">Age: {{ user.userprofile.age }}</span>
+                </div> <!-- price-wrap.// -->
+                <br>
+                <a href="#" class="btn btn-primary" id="profile-btn">Start chat!</a>
 
+            </div> <!-- bottom-wrap.// -->
+        </figure>
+
+    </div> <!-- col.// -->
 
 
 
