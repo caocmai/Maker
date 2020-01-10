@@ -62,7 +62,7 @@ This project uses the following third party addons
 
 ## Deployment
 
-Project can be accessed at https://maker-s-a.herokuapp.com/
+Project is deployed to https://maker-s-a.herokuapp.com/
 
 ## Authors
 
