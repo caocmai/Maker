@@ -44,7 +44,7 @@ Project code can be viewed by cloneing or forking then open with any integrated 
 
 To run project in an IDE, run the following in terminal
 ```
-python3 manage.py runserver
+$ python3 manage.py runserver
 ```
 
 ## Built With
