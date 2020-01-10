@@ -38,16 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
     'payments.apps.PaymentsConfig',
     'registrants',
     'channels',
     'chat',
-=======
-
     'crispy_forms',
     'registrants',
->>>>>>> 9c8e518dc1830e9505eff80cf8e0f76b2576d1f4
 ]
 
 MIDDLEWARE = [
