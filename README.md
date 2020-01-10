@@ -11,6 +11,7 @@ New users are presented with a splash page with the ability to sign up for an ac
 
 * Account creation
 * Profile creation with image upload
+* Authenicated can make posts
 * Filtering profiles
 * Chat
 * Payment
