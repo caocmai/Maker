@@ -288,7 +288,9 @@ h4{
 #profile-img img{
     display: block;
     margin: 0 auto;
+
 }
+
 .info{
     margin-top: 3vw;
 }
@@ -449,12 +451,6 @@ a:active{
 #age{
     font-size: 16px;
 }
-
-/* .card-img-top{
-    height: 150px;
-  } */
-
-
 
 #posting{
     width: 100%;

@@ -6,10 +6,15 @@
         <figcaption class="info">
             <a href="{% url 'view-profile-page-pk' user.id %}" class="title">{{ user.first_name }} {{ user.last_name }}</a>
             <p class="text-muted">{{ user.userprofile.location }}</p>
+            <p class="text-muted">Gender: {{ user.userprofile.gender }}</p>
+            <p class="text-muted">Age: {{ user.userprofile.age }}</p>
+
+
         </figcaption>
         <div class="bottom-wrap">
             <div class="age-wrap" id="age">
-                <span class="age">Age: {{ user.userprofile.age }}</span>
+                <!-- <span class="age">Age: {{ user.userprofile.age }}</span> -->
+
             </div> <!-- price-wrap.// -->
             <a href="#" class="btn btn-primary" id="profile-btn">Start chat!</a>
 
