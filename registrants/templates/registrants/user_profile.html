@@ -42,6 +42,20 @@
 
     </div> <!-- col.// -->
 
+    
+    <br>
+    <div id="posting">
+        <h2>{{ user.first_name }}'s Postings</h2><br>
+        {% for post in user.userpost_set.all reversed %}
+        <div id="posting_text">
+            <h5>{{ post.content }}</h5>
+            <small class="text-muted">Posted on {{ post.timestamp }}</small>
+            <hr>
+            {% empty %}
+                <p id="posting_text">No postings yet</pid="posting_text">
+            {% endfor %}
+        </div>
+    </div>
 
 
 {% endblock %}

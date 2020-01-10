@@ -453,3 +453,32 @@ a:active{
 /* .card-img-top{
     height: 150px;
   } */
+
+
+
+#posting{
+    width: 100%;
+
+    /* border-radius: 20px; */
+    border-style: none;
+    background: rgb(38, 44, 17);
+    color: #FFCCC2;
+    font-family: 'Raleway', sans-serif;
+
+}
+
+#posting_text {
+    /* margin: 5% 0% 0% 5%; */
+    margin-left: 60px;
+
+}
+
+
+#post-btn{
+    background: #47c9b7;
+    color: #40413A;
+    border-radius: 18px;
+    width: 120px;
+    height: 35px;
+    border-style: none;
+}

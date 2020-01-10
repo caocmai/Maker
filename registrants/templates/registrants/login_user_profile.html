@@ -34,7 +34,8 @@
                     <p class="text-muted">{{ user.userprofile.location }}</p>
                 </figcaption>
                 <div class="bottom-wrap">
-                    <a href="{% url 'profile-update-page' %}" class="btn btn-primary float-right" id="edit-btn">Edit profile</a>
+                    <a href="{% url 'profile-update-page' %}" class="btn btn-primary float-right" id="edit-btn">Edit Profile</a>
+
                     <div class="age-wrap" id="age">
                         <span class="age">Age: {{ user.userprofile.age }}</span>
                     </div> <!-- price-wrap.// -->
@@ -42,6 +43,21 @@
             </figure>
 
         </div> <!-- col.// -->
+        <br>
+        <div id="posting">
+            <h2>{{ user.first_name }}'s' Postings</h2><br>
+            {% for post in user.userpost_set.all reversed %}
+            <div id="posting_text">
+                <h5>{{ post.content }}</h5>
+                <small class="text-muted">Posted on {{ post.timestamp }}</small>
+                <hr>
+                {% empty %}
+                    <p id="posting_text">No postings yet</p>
+                {% endfor %}
+            </div>
+        </div>
+        <a href="{% url 'user-post-page' %}" class="btn btn-primary" id="post-btn">Create Post</a>
+
 
 <!-- </div> -->
 
