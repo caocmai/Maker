@@ -40,7 +40,7 @@ https://docs.google.com/document/d/1UATtl4V7DAK-aZXU4PgvbDpJBYg753k5MAeIYXOOIa8/
 
 ### Installing
 
-Project code can be viewed by cloneing or forking then open with any integrated development environment
+Project code can be viewed locally by cloneing or forking then open with any integrated development environment
 
 To run project in an IDE, run the following in terminal
 ```
