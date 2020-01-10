@@ -38,9 +38,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+<<<<<<< HEAD
+    'payments.apps.PaymentsConfig',
+    'registrants',
+    'channels',
+    'chat',
+=======
 
     'crispy_forms',
     'registrants',
+>>>>>>> 9c8e518dc1830e9505eff80cf8e0f76b2576d1f4
 ]
 
 MIDDLEWARE = [
@@ -76,18 +83,29 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'maker.wsgi.application'
-
+ASGI_APPLICATION = 'maker.routing.application'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+# mysite/settings.py
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'TEST': {
+            'NAME': os.path.join(BASE_DIR, 'db_test.sqlite3')
+        }
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -132,6 +150,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+# stripe
+STRIPE_SECRET_KEY = 'sk_test_URzgE3o9NIn3x3XkSNeqpBOi00uvr3mEGB'
+STRIPE_PUBLISHABLE_KEY = 'pk_test_COEOKTOmq1GU4jvt6MZSwL5s000u4n9dJv'
 
 # # Where to redirect during authentication
 # LOGIN_REDIRECT_URL = reverse_lazy('code-list-project')
