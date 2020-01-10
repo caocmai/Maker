@@ -43,7 +43,11 @@ INSTALLED_APPS = [
     'channels',
     'chat',
     'crispy_forms',
-    'registrants',
+<<<<<<< HEAD
+    
+=======
+    
+>>>>>>> 7add8c409606eaab55183e8729ea1e8b129fff07
 ]
 
 MIDDLEWARE = [
