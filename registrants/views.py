@@ -39,8 +39,6 @@ def register(request):
     return render(request, "registration/signup.html", context)
 
 
-
-
 class Testing(CreateView):
     def get(self, request):
         return render(request, 'registration/test.html', {'test': 'test'})

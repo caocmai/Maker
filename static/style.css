@@ -488,3 +488,8 @@ a:active{
     border-style: none;
     margin-left: 60px;
 }
+
+.stripe-button-el {
+    margin-top: 20px;
+    margin-left: 60px;
+}
