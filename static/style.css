@@ -442,12 +442,12 @@ a:active{
 }
 
 .info a{
-    font-size: 22px;
+    font-size: 26px;
     font-weight: bold;
 }
 
 #age{
-    font-size: 15px;
+    font-size: 16px;
 }
 
 /* .card-img-top{
@@ -464,6 +464,7 @@ a:active{
     background: rgb(38, 44, 17);
     color: #FFCCC2;
     font-family: 'Raleway', sans-serif;
+    margin-bottom: 40px;
 
 }
 
@@ -478,7 +479,8 @@ a:active{
     background: #47c9b7;
     color: #40413A;
     border-radius: 18px;
-    width: 120px;
+    width: 160px;
     height: 35px;
     border-style: none;
+    margin-left: 60px;
 }
