@@ -5,7 +5,7 @@
         </div>
         <figcaption class="info">
             <a href="{% url 'view-profile-page-pk' user.id %}" class="title">{{ user.first_name }} {{ user.last_name }}</a>
-            <p class="text-muted">{{ user.userprofile.location }}</p>
+            <p class="text-muted">City: {{ user.userprofile.location }}</p>
             <p class="text-muted">Gender: {{ user.userprofile.gender }}</p>
             <p class="text-muted">Age: {{ user.userprofile.age }}</p>
 
@@ -17,7 +17,7 @@
 
             </div> <!-- price-wrap.// -->
             <a href="{% url 'chat:index' %}" class="btn btn-primary" id="profile-btn">Start chat!</a>
-            <a href="{% url 'home' %}" class="btn btn-primary" id="profile-btn">Gift</a>
+            <a href="{% url 'payment' %}" class="btn btn-primary" id="gift-btn">Gift</a>
 
 
         </div> <!-- bottom-wrap.// -->

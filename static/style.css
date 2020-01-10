@@ -305,6 +305,14 @@ h4{
     border-radius: 20px;
 }
 
+#gift-btn {
+    background: rgb(193, 172, 128);
+    border-style: none;
+    color: #40413A;
+    font-weight: bold;
+    border-radius: 20px;
+}
+
 #id_password, #id_last_name, #id_first_name, #id_username, #id_email, #id_password1, #id_password2, #id_location, #id_age {
     background: #22241b;
     color: #e6984e;
@@ -380,7 +388,7 @@ label{
     background: #e6984e;
     color: #40413A;
     border-radius: 18px;
-    width: 80px;
+    width: 100px;
     height: 35px;
     border-style: none;
 }
@@ -478,5 +486,19 @@ a:active{
     width: 160px;
     height: 35px;
     border-style: none;
+    margin-left: 60px;
+}
+
+.stripe-button-el {
+    margin-top: 20px;
+    margin-left: 80px;
+}
+
+#reset_form {
+    margin-left: 160px;
+}
+
+#room-name-input, #room-name-submit {
+    margin-top: 10px;
     margin-left: 60px;
 }

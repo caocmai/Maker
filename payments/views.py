@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from django.conf import settings
 from django.views.generic.base import TemplateView
+import stripe
+
+
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
 class HomePageView(TemplateView):
     template_name = 'pay.html'

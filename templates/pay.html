@@ -1,4 +1,7 @@
-<h2>Buy for $5.00</h2>
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Gift $5.00 to your favorite person</h2>
 <form action="{% url 'charge' %}" method="post">
   {% csrf_token %}
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
@@ -7,3 +10,4 @@
           data-amount="500"
           data-locale="auto"></script>
 </form>
+{% endblock %}

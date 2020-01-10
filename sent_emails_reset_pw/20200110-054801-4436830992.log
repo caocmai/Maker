@@ -3,18 +3,18 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Subject: Password reset on 127.0.0.1:8000
 From: webmaster@localhost
-To: cao@mai.com
-Date: Thu, 09 Jan 2020 04:21:25 -0000
-Message-ID: <157854368547.9110.2590944423382807928@Caos-Macbook.local>
+To: test@test.com
+Date: Fri, 10 Jan 2020 05:48:01 -0000
+Message-ID: <157863528184.27621.7690197049247984657@Caos-Macbook.local>
 
 
 You're receiving this email because you requested a password reset for your user account at 127.0.0.1:8000.
 
 Please go to the following page and choose a new password:
 
-http://127.0.0.1:8000/accounts/reset/MTc/5cz-f3c0ea4eaaf6eb2cae4c/
+http://127.0.0.1:8000/accounts/reset/OA/5d0-0549d7bf3b4094a683d6/
 
-Your username, in case you’ve forgotten: caomai
+Your username, in case you’ve forgotten: testlast
 
 Thanks for using our site!
 
