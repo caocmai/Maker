@@ -34,10 +34,10 @@ def register(request):
             return redirect('all-users-page')
     
     else:
-        form = ExtendedUserCreationForm()
+        user_form = ExtendedUserCreationForm()
         profile_form = UserProfileForm()
 
-    context = {'form' : form, 'profile_form' : profile_form}
+    context = {'form' : user_form, 'profile_form' : profile_form}
     return render(request, "registration/signup.html", context)
 
 
