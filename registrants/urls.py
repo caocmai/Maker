@@ -6,7 +6,7 @@ from registrants.views import Testing, register,view_profile, Home, AllUsers, up
 
 
 urlpatterns = [
-    path('', register, name='home-page'),
+    path('', Home.as_view(), name='home-page'),
     path('register/', register, name='sign-up-page'),
     path('test/', Testing.as_view(), name='test-page'),
     path('user_profile/', login_view_profile, name='view-profile-page'),

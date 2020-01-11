@@ -50,7 +50,7 @@ class Testing(CreateView):
 class Home(CreateView):
 
     def get(self, request):
-        return render(request, 'base.html', {'test': 'test'})
+        return render(request, 'base2.html', {'test': 'test'})
 
 
 class AllUsers(CreateView):

@@ -22,11 +22,55 @@
 
 
 
-    <br><br>
     {% if request.user.is_authenticated %}
 
+<div class="container">
 
-    {% endif %}
+  <img src="{% static 'images/logo.png' %}" alt="">
+  <h1>A D A</h1>
+  <br>
+  <H4>Another Dating APP</H4>
+  <h5>Welcome back, {{ user.get_username }}</h5>
+  <a href="{% url 'all-users-page' %}" class="btn btn-success" id="loginbtn">See All Users</a>
+</div>
+
+  {% else %}
+  <div class="container">
+    <img src="{% static 'images/logo.png' %}" alt="">
+    <h1>A D A</h1>
+    <H4>Another Dating APP</H4>
+<div class="card">
+    <!-- Jango form here-->
+    <div class="border-top pt-3">
+      
+
+      <br><br><br><br><br><br><br><br>
+      <small id="account">
+        Already Have An Account?
+    </small>
+    <a href="{% url 'login' %}" class="btn btn-success" id="loginbtn">Log In</a>
+
+
+    <br><br><br>
+    <small id="account">
+        OR
+    </small>
+    <br><br>
+  <small id="account">
+    Create a New One Now
+</small>
+<br>
+<a href="{% url 'sign-up-page' %}" class="btn btn-success" id="loginbtn">Sign Up</a>
+
+
+
+
+
+
+</div>
+
+  {% endif %}
+
 
     {% block content %}
     {% endblock %}
