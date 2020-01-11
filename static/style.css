@@ -502,3 +502,12 @@ a:active{
     margin-top: 10px;
     margin-left: 60px;
 }
+
+#sign-up-btn{
+    background: #47c9b7;
+    color: #40413A;
+    border-radius: 18px;
+    width: 120px;
+    height: 35px;
+    border-style: none;
+}
