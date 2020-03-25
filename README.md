@@ -1,4 +1,4 @@
-# maker
+# Maker
 ![alt text](https://github.com/caocmai/maker/blob/master/static/images/logo.png)
 
 Maker is a dating app in which users can create and view profiles. Additionally, users can chat and send monetary gifts to people they admire.
@@ -13,21 +13,21 @@ New users are presented with a splash page with the ability to sign up for an ac
 * Profile creation with image upload
 * Authenticated user can make posts
 * Filtering profiles
-* Chat-note: currently working locally, but not on herokuapp
+* Chat (note: currently working locally, but not on Heroku)
 * Payment
 
 ### Prerequisites
 
 Must have Django 3 and Python 2.7 installed
 
-.To log into admin
+To log into admin
 
 ```
 username: admin
 email: admin@admin.com
 password: admin
 ```
-.To test the payment functionality
+To test the payment functionality
 
 ```
 email: email@gmail.com
